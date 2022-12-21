@@ -11,16 +11,92 @@
     <meta name="author" content="Mateusz Mróz">
 
     <title>Mob Psycho 100 III Lektor PL</title>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css">
 
     <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css">
     <style>
         @font-face {
             font-family: 'Alegreya-Regular';
             font-style: normal;
             font-weight: normal;
             src: local('Alegreya-Regular'), url('../fonts/Alegreya-Regular.ttf') format('woff');
+        }
+
+        :root {
+            /* Główny kolor */
+            --plyr-color-main: #ffffff;
+            --plyr-video-background: rgba(0, 0, 0, 1);
+            --plyr-tab-focus-color: var(--plyr-color-main);
+            --plyr-badge-background: rgb(72, 0, 255);
+            --plyr-badge-text-color: #ffffff;
+            --plyr-badge-border-radius: 2px;
+            --plyr-tab-focus-color: var(--plyr-color-main);
+            --plyr-captions-background: rgba(0, 0, 0, 0.8);
+            --plyr-captions-text-color: #ffffff;
+            --plyr-control-icon-size: 18px;
+            --plyr-control-spacing: 10px;
+            --plyr-control-padding: calc(var(--plyr-control-spacing) * 0.7);
+            /* Okrągłość kontrolek */
+            --plyr-control-radius: 8px;
+            --plyr-control-toggle-checked-background: rgb(72, 0, 255);
+            /* Tło panelu kontrolnego */
+            --plyr-video-controls-background: linear-gradient(rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.75));
+            /* Kolor ikon */
+            --plyr-video-control-color: rgb(255, 255, 255, 0.9);
+            --plyr-video-control-color-hover: #ffffff;
+            --plyr-video-control-background-hover: rgba(0, 0, 0, .8);
+            --plyr-audio-controls-background: #000000;
+            --plyr-audio-control-color: rgb(255, 255, 255, 0.9);
+            --plyr-audio-control-color-hover: #ffffff;
+            --plyr-audio-control-background-hover: rgba(255, 255, 255, 0.05);
+            /* Kolor ustawień */
+            --plyr-menu-background: rgba(0, 0, 0, 0.7);
+            /* Kolor tekstu ustawień */
+            --plyr-menu-color: #ffffff;
+            --plyr-menu-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            --plyr-menu-border-radius: 4px;
+            --plyr-menu-arrow-size: 6px;
+            --plyr-menu-item-arrow-color: #644a4a;
+            --plyr-menu-item-arrow-size: 4px;
+            --plyr-menu-border-color: #dcdfe5;
+            --plyr-menu-border-shadow-color: #ffffff;
+            --plyr-progress-loading-size: 25px;
+            --plyr-progress-loading-background: rgba(35, 40, 47, 0.6);
+            --plyr-video-progress-buffered-background: rgba(255, 255, 255, 0.25);
+            --plyr-audio-progress-buffered-background: rgba(255, 255, 255, 0.25);
+            --plyr-range-thumb-height: 13px;
+            /* Kulka postępu */
+            --plyr-range-thumb-background: #ffffff;
+            --plyr-range-thumb-shadow: 0 1px 1px rgba(72, 0, 255, 0.15), 0 0 0 1px rgba(72, 0, 255, 0.2);
+            --plyr-range-thumb-active-shadow-width: 3px;
+            --plyr-range-track-height: 5px;
+            --plyr-range-fill-background: var(--plyr-color-main);
+            --plyr-video-range-track-background: var(--plyr-video-progress-buffered-background);
+            --plyr-video-range-thumb-active-shadow-color: rgba(255, 255, 255, 0.5);
+            --plyr-audio-range-track-background: var(--plyr-video-progress-buffered-background);
+            --plyr-audio-range-thumb-active-shadow-color: rgba(72, 0, 255, 0.1);
+            --plyr-tooltip-background: rgba(255, 255, 255, 0.9);
+            --plyr-tooltip-color: #4a5464;
+            --plyr-tooltip-padding: calc(var(--plyr-control-spacing) / 2);
+            --plyr-tooltip-arrow-size: 4px;
+            --plyr-tooltip-radius: 3px;
+            --plyr-tooltip-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+            --plyr-font-family: ;
+            --plyr-font-size-base: 15px;
+            --plyr-font-size-small: 13px;
+            --plyr-font-size-large: 18px;
+            --plyr-font-size-xlarge: 21px;
+            --plyr-font-size-time: var(--plyr-font-size-small);
+            --plyr-font-size-menu: var(--plyr-font-size-small);
+            --plyr-font-size-badge: 9px;
+            --plyr-font-weight-regular: 400;
+            --plyr-font-weight-bold: 600;
+            --plyr-line-height: 1.7;
+            --plyr-font-smoothing: false;
+        }
+
+        .plyr--video .plyr__control:hover {
+            background: rgba(0, 0, 0, .5);
         }
 
         *,
@@ -49,43 +125,16 @@
         #player {
             height: 100vh;
         }
-
-
-        .plyr--full-ui input[type=range] {
-            color: #fff;
-        }
-
-        .plyr__control {
-            color: rgba(255, 255, 255, 0.8);
-            /* ustaw tekst na biały kolor */
-        }
-
-        .plyr__control--overlaid {
-            background: rgba(0, 0, 0, .8);
-        }
-
-        .plyr--video .plyr__control.plyr__tab-focus,
-        .plyr--video .plyr__control:hover,
-        .plyr--video .plyr__control[aria-expanded=true] {
-            background: rgba(0, 0, 0, .5);
-        }
-
-        .plyr__control.plyr__tab-focus {
-            box-shadow: 0 0 0 5px rgb(255, 0, 0);
-        }
-
-        .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
-            background: rgb(0, 0, 0);
-        }
     </style>
 </head>
 
 <body>
+    <!-- https://chrome.google.com/webstore/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk/related -->
     <!-- HTML5 video -->
-    <video id="player" playsinline controls data-poster="assets/img/1.jpg.png">
-        <source src="https://g.cda.pl/mediafile/0YQAii61OyE.mp4" type="video/mp4">
-        <track kind="captions" label="Polski" srclang="pl" src="assets/sub/1.vtt" default>
-    </video>
+    <!-- <video id="player" playsinline controls data-poster="assets/img/0.jpg">
+        <source src="assets/video/0.mp4" type="video/mp4">
+        <track kind="captions" label="Polski" srclang="pl" src="assets/sub/0.vtt" default>
+    </video> -->
 
     <!-- HTML5 audio -->
     <!-- <audio id="player" controls>
@@ -96,14 +145,27 @@
     <!-- YouTube -->
     <!-- <div class="plyr__video-embed" id="player">
         <iframe
-            src="https://g.cda.pl/mediafile/0YQAii61OyE.mp4"
+            src="https://youtu.be/iqcLm0fyvR0"
             allowfullscreen allowtransparency allow="autoplay"></iframe>
     </div> -->
 
     <!-- https://github.com/sampotts/plyr -->
     <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
     <script>
-        const player = new Plyr('#player');
+        // const player = new Plyr('#player');
+        function playVideo() {
+            buttonNumber = localStorage.getItem('buttonNumber');
+            document.body.innerHTML = `
+                <video id="player" playsinline controls data-poster="assets/img/${buttonNumber}.jpg.png">
+                    <source src="https://github.com/MattyMrozKun/Mob_Psycho_100_III_Lektor_PL/blob/main/assets/video/${buttonNumber}.mp4?raw=true" type="video/mp4">
+                    <track kind="captions" label="Polski" srclang="pl" src="assets/sub/${buttonNumber}.vtt" default>
+                </video>
+            `;
+
+            const player = new Plyr('#player');
+        }
+
+        playVideo();
     </script>
 </body>
 
