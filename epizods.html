@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="description" content="Mob Psycho 100 III Lektor PL">
+    <meta name="keywords" content="Mob Psycho 100 III Lektor PL">
+    <meta name="author" content="Mateusz Mróz">
+
+    <title>Mob Psycho 100 III Lektor PL</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css">
+
+    <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+
+    <style>
+        @font-face {
+            font-family: 'Alegreya-Regular';
+            font-style: normal;
+            font-weight: normal;
+            src: local('Alegreya-Regular'), url('../fonts/Alegreya-Regular.ttf') format('woff');
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Alegreya-Regular', sans-serif;
+        }
+
+        #player {
+            height: 100vh;
+        }
+
+
+        .plyr--full-ui input[type=range] {
+            color: #fff;
+        }
+
+        .plyr__control {
+            color: rgba(255, 255, 255, 0.8);
+            /* ustaw tekst na biały kolor */
+        }
+
+        .plyr__control--overlaid {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .plyr--video .plyr__control.plyr__tab-focus,
+        .plyr--video .plyr__control:hover,
+        .plyr--video .plyr__control[aria-expanded=true] {
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .plyr__control.plyr__tab-focus {
+            box-shadow: 0 0 0 5px rgb(255, 0, 0);
+        }
+
+        .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
+            background: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML5 video -->
+    <video id="player" playsinline controls data-poster="assets/img/1.jpg.png">
+        <source src="https://g.cda.pl/mediafile/0YQAii61OyE.mp4" type="video/mp4">
+        <track kind="captions" label="Polski" srclang="pl" src="assets/sub/1.vtt" default>
+    </video>
+
+    <!-- HTML5 audio -->
+    <!-- <audio id="player" controls>
+        <source src="/path/to/audio.mp3" type="audio/mp3" />
+        <source src="/path/to/audio.ogg" type="audio/ogg" />
+    </audio> -->
+
+    <!-- YouTube -->
+    <!-- <div class="plyr__video-embed" id="player">
+        <iframe
+            src="https://g.cda.pl/mediafile/0YQAii61OyE.mp4"
+            allowfullscreen allowtransparency allow="autoplay"></iframe>
+    </div> -->
+
+    <!-- https://github.com/sampotts/plyr -->
+    <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+    <script>
+        const player = new Plyr('#player');
+    </script>
+</body>
+
+</html>

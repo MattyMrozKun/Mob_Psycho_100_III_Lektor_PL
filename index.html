@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="description" content="Mob Psycho 100 III Lektor PL">
+    <meta name="keywords" content="Mob Psycho 100 III Lektor PL">
+    <meta name="author" content="Mateusz Mróz">
+
+    <title>Mob Psycho 100 III Lektor PL</title>
+
+    <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav__logo">
+            <a href="index.html">
+                <span class="blast">M</span><span class="blast">o</span><span class="blast">b</span> <span
+                    class="blast">P</span><span class="blast">s</span><span class="blast">y</span><span
+                    class="blast">c</span><span class="blast">h</span><span class="blast">o</span> <span
+                    class="blast">1</span><span class="blast">0</span><span class="blast">0</span> <span
+                    class="blast">I</span><span class="blast">I</span><span class="blast">I</span> <span
+                    class="blast">L</span><span class="blast">e</span><span class="blast">k</span><span
+                    class="blast">t</span><span class="blast">o</span><span class="blast">r</span> <span
+                    class="blast">P</span><span class="blast">L</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <ul class="epizod__list">
+        </ul>
+    </main>
+
+    <footer class="footer">
+    </footer>
+</body>
+<script>
+    function blast() {
+        const blast = document.querySelectorAll('.blast');
+        blast.forEach((blast) => {
+            blast.addEventListener('mouseenter', () => {
+                blast.classList.add('active__blast');
+                blast.addEventListener('animationend', () => {
+                    blast.classList.remove('active__blast');
+                });
+            });
+        });
+    }
+
+    function addepizodItem() {
+        const epizodList = document
+            .querySelector('.epizod__list');
+        for (let i = 1; i < 13; i++) {
+            const epizodItem = document.createElement('li');
+            epizodItem.classList.add('epizod__item');
+            epizodItem.innerHTML = `
+                <div class="button__area">
+                    <div class="button__wrapper">
+                        <a class="button" href="epizods.html" target="_blank">
+                            <i class="ri-arrow-right-s-line"></i>
+                            ${i}
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                        <div class="button__bg"></div>
+                    </div>
+                </div>
+            `;
+            epizodList.appendChild(epizodItem);
+        }
+    }
+
+    function addButtonLocalStorage() {
+        const button = document.querySelectorAll('.button');
+        button.forEach((button) => {
+            button.addEventListener('click', () => {
+                const buttonNumber = button.innerText;
+                localStorage.setItem('buttonNumber', buttonNumber);
+            });
+        });
+    }
+    blast();
+    addepizodItem();
+    addButtonLocalStorage();
+
+
+</script>
+
+</html>
